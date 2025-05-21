@@ -12,6 +12,16 @@ export default function About() {
     fetchAboutData().then(setAboutData);
   }, []);
 
+  const fixImagePaths = (html) => {
+    return (
+      html
+        .replace(/src="\/storage\//g, `src="${IMAGE_BASE_URL}`)
+        .replace(/(<img [^>]*)(width|height)="[^"]*"([^>]*>)/gi, "$1$3")
+        // Optionally add Bootstrap classes to all images if not present
+        .replace(/<img /g, '<img class="img-fluid rounded shadow" ')
+    );
+  };
+
   if (!aboutData) {
     return <div className="text-center p-5">Loading...</div>;
   }
@@ -21,8 +31,12 @@ export default function About() {
   return (
     <div className="container py-5">
       <h2 className="text-center mb-4 display-5 text-danger ">{title}</h2>
-      {/* Render body HTML */}
-      <div dangerouslySetInnerHTML={{ __html: body }} className="mb-5" />
+
+      {/* Render fixed body HTML */}
+      <div
+        dangerouslySetInnerHTML={{ __html: fixImagePaths(body) }}
+        className="mb-5 "
+      />
 
       {/* Gallery Section */}
       {images?.length > 0 && (

@@ -15,3 +15,25 @@ h4 {
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
 }
+
+.about-content table {
+  width: 100% !important;
+  display: block;
+  overflow-x: auto;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.about-content td,
+.about-content th {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+.about-content img {
+  max-width: 100% !important;
+  height: auto;
+  display: block;
+  margin: 1rem auto;
+}
