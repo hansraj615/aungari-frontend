@@ -1,15 +1,24 @@
 import React, { useEffect, useState } from "react";
+import { useSearchParams, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { fetchHomeData } from "../api/homeApi";
 import { IMAGE_BASE_URL, ROUTES } from "../constants";
 
 export default function Home() {
   const [homeData, setHomeData] = useState(null);
+  const [searchParams] = useSearchParams();
+  const { i18n } = useTranslation();
+
+  // Set language from URL
+  useEffect(() => {
+    const lang = searchParams.get("lang");
+    if (lang && ["en", "hi"].includes(lang)) {
+      i18n.changeLanguage(lang);
+    }
+  }, [searchParams, i18n]);
 
   useEffect(() => {
-    fetchHomeData().then((data) => {
-      console.log("Fetched Home Data:", data); // ✅ Check what's coming
-      setHomeData(data);
-    });
+    fetchHomeData().then(setHomeData);
   }, []);
 
   useEffect(() => {
@@ -29,8 +38,9 @@ export default function Home() {
     return <div className="text-center p-5">Loading homepage...</div>;
   }
 
-  const hero_section = homeData?.hero_section;
-  const dynamic_sections = homeData?.dynamic_sections || [];
+  const lang = i18n.language || "en";
+  const hero_section = homeData.hero_section;
+  const dynamic_sections = homeData.dynamic_sections || [];
 
   return (
     <div>
@@ -57,10 +67,10 @@ export default function Home() {
                 />
                 <div className="carousel-caption d-flex flex-column justify-content-center align-items-center h-100">
                   <h1 className="display-3 fw-bold bg-dark bg-opacity-50 p-3 rounded">
-                    {hero_section.title}
+                    {hero_section[`title_${lang}`]}
                   </h1>
                   <p className="lead bg-dark bg-opacity-50 px-3 py-2 rounded">
-                    {hero_section.subtitle}
+                    {hero_section[`subtitle_${lang}`]}
                   </p>
                   <a
                     href={ROUTES.darshan}
@@ -104,6 +114,7 @@ export default function Home() {
         <SectionRenderer
           key={index}
           section={section}
+          lang={lang}
           baseUrl={IMAGE_BASE_URL}
         />
       ))}
@@ -156,13 +167,17 @@ export default function Home() {
   );
 }
 
-function SectionRenderer({ section, baseUrl }) {
+function SectionRenderer({ section, lang, baseUrl }) {
   switch (section.type) {
     case "text":
       return (
         <div className="container py-5 text-center">
-          <h2 className="text-danger mb-3">{section.title}</h2>
-          <div dangerouslySetInnerHTML={{ __html: section.content }} />
+          <h2 className="text-danger mb-3">{section[`title_${lang}`]}</h2>
+          <div
+            dangerouslySetInnerHTML={{
+              __html: section[`content_${lang}`] || section.content,
+            }}
+          />
         </div>
       );
 
@@ -178,14 +193,18 @@ function SectionRenderer({ section, baseUrl }) {
             padding: "60px 20px",
           }}
         >
-          <h2 className="display-5 text-warning mb-3">{section.title}</h2>
+          <h2 className="display-5 text-warning mb-3">
+            {section[`title_${lang}`]}
+          </h2>
           <div
             className="lead mb-4"
-            dangerouslySetInnerHTML={{ __html: section.content }}
+            dangerouslySetInnerHTML={{
+              __html: section[`content_${lang}`] || section.content,
+            }}
           />
-          {section.button_link && section.button_text && (
+          {section.button_link && section[`button_text_${lang}`] && (
             <a href={section.button_link} className="btn btn-warning btn-lg">
-              {section.button_text}
+              {section[`button_text_${lang}`]}
             </a>
           )}
         </section>
@@ -198,15 +217,17 @@ function SectionRenderer({ section, baseUrl }) {
           style={{ background: "linear-gradient(to right, #FFF3CD, #FFE0B2)" }}
         >
           <div className="container text-center">
-            <h3 className="mb-4 text-danger">{section.title}</h3>
+            <h3 className="mb-4 text-danger">{section[`title_${lang}`]}</h3>
             <div className="row">
               {section.items.map((item, i) => (
                 <div className="col-md-4 mb-4" key={i}>
                   <div className="card border-0 shadow h-100">
                     <div className="card-body">
                       <div className="display-4">{item.icon}</div>
-                      <h5 className="card-title mt-3">{item.title}</h5>
-                      <p className="card-text">{item.description}</p>
+                      <h5 className="card-title mt-3">
+                        {item[`title_${lang}`]}
+                      </h5>
+                      <p className="card-text">{item[`description_${lang}`]}</p>
                     </div>
                   </div>
                 </div>
@@ -219,14 +240,14 @@ function SectionRenderer({ section, baseUrl }) {
     case "video":
       return section.video_url ? (
         <div className="container py-5 text-center">
-          <h2 className="text-danger mb-4">{section.title}</h2>
+          <h2 className="text-danger mb-4">{section[`title_${lang}`]}</h2>
           <div className="ratio ratio-16x9">
             <iframe
               src={section.video_url.replace(
                 "youtu.be/",
                 "www.youtube.com/embed/"
               )}
-              title={section.title}
+              title={section[`title_${lang}`]}
               allowFullScreen
               width="100%"
               height="400"
