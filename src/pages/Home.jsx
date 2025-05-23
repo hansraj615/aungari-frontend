@@ -108,7 +108,6 @@ export default function Home() {
           </button>
         </div>
       )}
-
       {/* RENDER DYNAMIC SECTIONS */}
       {dynamic_sections.map((section, index) => (
         <SectionRenderer
@@ -124,7 +123,9 @@ export default function Home() {
         className="container-fluid px-4 py-5"
         style={{ maxWidth: "1140px", margin: "0 auto" }}
       >
-        <h3 className="text-center text-danger mb-4">Temple Gallery</h3>
+        <h3 className="text-center text-danger mb-4">
+          {lang === "hi" ? "मंदिर गैलरी" : "Temple Gallery"}
+        </h3>
         <div className="row">
           {[1, 2, 3].map((i) => (
             <div className="col-md-4 mb-3" key={i}>
@@ -138,20 +139,29 @@ export default function Home() {
         </div>
         <div className="text-center mt-3">
           <a href="/gallery" className="btn btn-outline-secondary">
-            📸 View Full Gallery
+            {lang === "hi" ? "📸 पूरी गैलरी देखें" : "📸 View Full Gallery"}
           </a>
         </div>
       </div>
-
       {/* VISITOR INFO */}
       <div className="bg-dark text-white py-5">
         <div
           className="w-100 px-4 text-center"
           style={{ maxWidth: "1140px", margin: "0 auto" }}
         >
-          <h4>📍 Visit Aungari Dham</h4>
-          <p>Aungari Village, Nalanda District, Bihar</p>
-          <p>🕔 Open: 5 AM – 8 PM Daily</p>
+          <h4>
+            {lang === "hi" ? "📍 औंगरी धाम पधारें" : "📍 Visit Aungari Dham"}
+          </h4>
+          <p>
+            {lang === "hi"
+              ? "औंगरी गांव, नालंदा जिला, बिहार"
+              : "Aungari Village, Nalanda District, Bihar"}
+          </p>
+          <p>
+            {lang === "hi"
+              ? "🕔 खुला: रोज़ाना सुबह 5 बजे – रात 8 बजे तक"
+              : "🕔 Open: 5 AM – 8 PM Daily"}
+          </p>
           <iframe
             title="Temple Map"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3610.274276177127!2d85.2514386!3d25.193971349999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f2c0131dfb0793%3A0x936292dcd64df843!2sSun%20Temple%2CAungari%2CNalanda!5e0!3m2!1sen!2sin!4v1746457196722!5m2!1sen!2sin"
