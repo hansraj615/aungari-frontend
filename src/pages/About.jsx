@@ -13,7 +13,7 @@ export default function About() {
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
-    const lang = params.get("lang") || "en";
+    const lang = params.get("lang") || "hi";
     i18n.changeLanguage(lang);
   }, [location.search, i18n]);
 
