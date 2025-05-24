@@ -3,6 +3,7 @@ import { useSearchParams, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { fetchHomeData } from "../api/homeApi";
 import { IMAGE_BASE_URL, ROUTES } from "../constants";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 export default function Home() {
   const [homeData, setHomeData] = useState(null);
@@ -35,7 +36,7 @@ export default function Home() {
   }, []);
 
   if (!homeData) {
-    return <div className="text-center p-5">Loading homepage...</div>;
+    return <LoadingSpinner />;
   }
 
   const lang = i18n.language || "en";

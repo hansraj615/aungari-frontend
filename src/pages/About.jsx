@@ -4,12 +4,14 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { fetchAboutData } from "../api/aboutApi";
 import { IMAGE_BASE_URL } from "../constants";
 import "../style/About.css";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 export default function About() {
   const { i18n } = useTranslation();
   const location = useLocation();
   const navigate = useNavigate();
   const [aboutData, setAboutData] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const params = new URLSearchParams(location.search);
@@ -21,12 +23,24 @@ export default function About() {
     fetchAboutData().then(setAboutData);
   }, []);
 
+  useEffect(() => {
+    // Simulate loading data
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
+
   const fixImagePaths = (html) => {
     return html
       .replace(/src=\"\/storage\//g, `src=\"${IMAGE_BASE_URL}`)
       .replace(/(<img [^>]*)(width|height)=\"[^\"]*\"([^>]*>)/gi, "$1$3")
       .replace(/<img /g, '<img class="img-fluid rounded shadow" ');
   };
+
+  if (loading) {
+    return <LoadingSpinner />;
+  }
 
   if (!aboutData) {
     return <div className="text-center p-5">Loading...</div>;
