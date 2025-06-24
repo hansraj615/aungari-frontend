@@ -1,15 +1,15 @@
-
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
-import Home from './pages/Home';
-import About from './pages/About';
-import Darshan from './pages/Darshan';
-import Events from './pages/Events';
-import Gallery from './pages/Gallery';
-import Donate from './pages/Donate';
-import Contact from './pages/Contact';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Darshan from "./pages/Darshan";
+import Events from "./pages/Events";
+import Gallery from "./pages/Gallery";
+import Donate from "./pages/Donate";
+import Contact from "./pages/Contact";
+import EventDetail from "./pages/EventDetail";
 
 function App() {
   return (
@@ -21,6 +21,7 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/darshan" element={<Darshan />} />
           <Route path="/events" element={<Events />} />
+          <Route path="/events/:id" element={<EventDetail />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/donate" element={<Donate />} />
           <Route path="/contact" element={<Contact />} />
