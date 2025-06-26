@@ -21,23 +21,18 @@ export default function BoardOfTrustees() {
       ) : (
         <div className="row g-4">
           {trustees.map((trustee) => (
-            <div className="col-md-4" key={trustee.id}>
+            <div className="col-md-3" key={trustee.id}>
               <div className="card h-100 shadow-sm">
-                {trustee.image ? (
-                  <img
-                    src={`${IMAGE_BASE_URL}${trustee.image}`}
-                    alt={trustee.name}
-                    className="card-img-top"
-                    style={{ height: "250px", objectFit: "cover" }}
-                  />
-                ) : (
-                  <div
-                    className="card-img-top bg-light d-flex align-items-center justify-content-center"
-                    style={{ height: "250px", color: "#888" }}
-                  >
-                    No Image
-                  </div>
-                )}
+                <img
+                  src={
+                    trustee.image
+                      ? `${IMAGE_BASE_URL}${trustee.image}`
+                      : "/images/dummy_user.jpg"
+                  }
+                  alt={trustee.name}
+                  className="card-img-top"
+                  style={{ height: "250px", objectFit: "cover" }}
+                />
                 <div className="card-body">
                   <h5 className="card-title text-primary">{trustee.name}</h5>
                   <p className="card-text mb-1">
