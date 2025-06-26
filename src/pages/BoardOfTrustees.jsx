@@ -26,6 +26,7 @@ export default function BoardOfTrustees() {
                 <th scope="col">#</th>
                 <th scope="col">{t("photo")}</th>
                 <th scope="col">{t("name")}</th>
+                <th scope="col">{t("designation")}</th>
                 <th scope="col">{t("email")}</th>
                 <th scope="col">{t("mobileNumber")}</th>
                 <th scope="col">{t("address")}</th>
@@ -52,6 +53,7 @@ export default function BoardOfTrustees() {
                     )}
                   </td>
                   <td>{trustee.name}</td>
+                  <td>{trustee.designation}</td>
                   <td>{trustee.email || "—"}</td>
                   <td>{trustee.phone || "—"}</td>
                   <td>{trustee.address || "—"}</td>
