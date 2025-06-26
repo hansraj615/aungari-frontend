@@ -21,6 +21,7 @@ export default function Navbar() {
     { to: "/about", label: t("about") },
     { to: "/darshan", label: t("darshan") },
     { to: "/events", label: t("events") },
+    { to: "/trustee", label: t("boardOfTrustees") },
     { to: "/gallery", label: t("gallery") },
     { to: "/donate", label: t("donate") },
     { to: "/contact", label: t("contact") },

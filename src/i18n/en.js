@@ -14,5 +14,23 @@ const en = {
   selectMonth: "Select Month",
   selectYear: "Select Year",
   backToEvents: "Back to Events",
+  boardOfTrustees: "Board of Trustees",
+  trustees: "Trustees",
+  mobileNumber: "Mobile Number",
+  name: "Name",
+  email: "Email",
+  designation: "Designation",
+  address: "Address",
+  photo: "Photo",
+  eventName: "Event Name",
+  trustName: "Aungari Dham Trust",
+  trustDescription:
+    "Aungari Dham Trust is a religious and social organization dedicated to the upliftment and service of society.",
+  trustMission:
+    "Our mission is to bring about positive change in society through service, education, and religious activities.",
+  trustVision:
+    "Our vision is to create a society where all individuals can live with equal opportunities and respect.",
+  trustValues: "Our values: Service, Dedication, and Community.",
+  eventDetails: "Event Details",
 };
 export default en;

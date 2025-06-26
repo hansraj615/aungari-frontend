@@ -10,6 +10,7 @@ import Gallery from "./pages/Gallery";
 import Donate from "./pages/Donate";
 import Contact from "./pages/Contact";
 import EventDetail from "./pages/EventDetail";
+import BoardOfTrustees from "./pages/BoardOfTrustees";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/darshan" element={<Darshan />} />
           <Route path="/events" element={<Events />} />
           <Route path="/events/:id" element={<EventDetail />} />
+          <Route path="/trustee" element={<BoardOfTrustees />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/donate" element={<Donate />} />
           <Route path="/contact" element={<Contact />} />
