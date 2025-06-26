@@ -14,53 +14,48 @@ export default function BoardOfTrustees() {
 
   return (
     <div className="container py-5">
-      <h2 className="text-center text-danger mb-4">{t("boardOfTrustees")}</h2>
+      <h2 className="text-center text-danger mb-5">{t("boardOfTrustees")}</h2>
 
       {trustees.length === 0 ? (
         <p className="text-center text-muted">No trustees found.</p>
       ) : (
-        <div className="table-responsive">
-          <table className="table table-bordered table-striped align-middle">
-            <thead className="table-light">
-              <tr>
-                <th scope="col">#</th>
-                <th scope="col">{t("photo")}</th>
-                <th scope="col">{t("name")}</th>
-                <th scope="col">{t("designation")}</th>
-                <th scope="col">{t("email")}</th>
-                <th scope="col">{t("mobileNumber")}</th>
-                <th scope="col">{t("address")}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {trustees.map((trustee, index) => (
-                <tr key={trustee.id}>
-                  <td>{index + 1}</td>
-                  <td style={{ width: "100px" }}>
-                    {trustee.image ? (
-                      <img
-                        src={`${IMAGE_BASE_URL}${trustee.image}`}
-                        alt={trustee.name}
-                        className="img-thumbnail"
-                        style={{
-                          height: "80px",
-                          width: "80px",
-                          objectFit: "cover",
-                        }}
-                      />
-                    ) : (
-                      <span className="text-muted">No Image</span>
-                    )}
-                  </td>
-                  <td>{trustee.name}</td>
-                  <td>{trustee.designation}</td>
-                  <td>{trustee.email || "—"}</td>
-                  <td>{trustee.phone || "—"}</td>
-                  <td>{trustee.address || "—"}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div className="row g-4">
+          {trustees.map((trustee) => (
+            <div className="col-md-4" key={trustee.id}>
+              <div className="card h-100 shadow-sm">
+                {trustee.image ? (
+                  <img
+                    src={`${IMAGE_BASE_URL}${trustee.image}`}
+                    alt={trustee.name}
+                    className="card-img-top"
+                    style={{ height: "250px", objectFit: "cover" }}
+                  />
+                ) : (
+                  <div
+                    className="card-img-top bg-light d-flex align-items-center justify-content-center"
+                    style={{ height: "250px", color: "#888" }}
+                  >
+                    No Image
+                  </div>
+                )}
+                <div className="card-body">
+                  <h5 className="card-title text-primary">{trustee.name}</h5>
+                  <p className="card-text mb-1">
+                    <strong>{t("designation")}:</strong> {trustee.designation}
+                  </p>
+                  <p className="card-text mb-1">
+                    <strong>{t("email")}:</strong> {trustee.email || "—"}
+                  </p>
+                  <p className="card-text mb-1">
+                    <strong>{t("mobileNumber")}:</strong> {trustee.phone || "—"}
+                  </p>
+                  <p className="card-text">
+                    <strong>{t("address")}:</strong> {trustee.address || "—"}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       )}
     </div>
