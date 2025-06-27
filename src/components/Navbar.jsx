@@ -43,7 +43,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`navbar navbar-expand-lg ${
+      className={`navbar navbar-expand-lg fixed-top ${
         darkMode ? "navbar-dark bg-dark" : "navbar-dark bg-danger"
       } px-4`}
     >
@@ -52,8 +52,8 @@ export default function Navbar() {
         to={`/?lang=${currentLang}`}
         onClick={handleLinkClick}
       >
-        <img src="/images/logo.png" alt="Aungari Dham Logo" height="40" />{" "}
-        Aungari Dham
+        <img src="/images/logo.png" alt="Aungari Dham Trust Logo" height="60" />{" "}
+        {t("trustName")}
       </Link>
       <button
         className="navbar-toggler"

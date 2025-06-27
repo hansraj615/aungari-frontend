@@ -84,6 +84,7 @@ export default function Gallery() {
 
   return (
     <div className="container py-5">
+      <h2 className="text-center text-danger mb-4">{t("gallery")}</h2>
       {/* Gallery Grid */}
       <div className="row g-4">
         {galleries.map((gallery) => (

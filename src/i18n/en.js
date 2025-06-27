@@ -32,5 +32,19 @@ const en = {
     "Our vision is to create a society where all individuals can live with equal opportunities and respect.",
   trustValues: "Our values: Service, Dedication, and Community.",
   eventDetails: "Event Details",
+
+  // contactUs: "Contact Us",
+  contactUs: "Contact Us",
+  yourName: "Your Name",
+  yourEmail: "Your Email",
+  yourMessage: "Your Message",
+  sendMessage: "Send Message",
+  sendMessageSuccess: "Message sent successfully!",
+  sendMessageFailed: "Failed to send. Please try again.",
+  success: "Success",
+  failed: "Failed",
+  // donateNow: "Donate Now",
+  // trustHistory: "Trust History",
+  // trustActivities: "Trust Activities",
 };
 export default en;

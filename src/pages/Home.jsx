@@ -44,7 +44,7 @@ export default function Home() {
   const dynamic_sections = homeData.dynamic_sections || [];
 
   return (
-    <div>
+    <div className="my-3">
       {/* HERO SECTION */}
       {hero_section?.images?.length > 0 && (
         <div

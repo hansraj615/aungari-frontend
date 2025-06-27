@@ -1,0 +1,46 @@
+.contact-fullscreen {
+  height: calc(100vh - 156px);/* Adjust for navbar height */
+  width: 100%; /* Fix unwanted scroll */
+  background: url("/images/contact_bg.jpg") no-repeat center center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  box-sizing: border-box;
+    overflow: hidden;
+}
+
+.form-box {
+  background-color: rgba(255, 255, 255, 0.97);
+  padding: 2rem;
+  max-width: 420px;
+  width: 100%;
+  border-radius: 12px;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
+  margin-right: 5%;
+}
+
+.form-box h2 {
+  margin-bottom: 1rem;
+  color: #c00;
+}
+
+.form-control {
+  margin-bottom: 1rem;
+}
+
+.alert {
+  margin-bottom: 1rem;
+  color: green;
+}
+
+@media (max-width: 768px) {
+  .contact-fullscreen {
+    justify-content: center;
+    height: calc(100vh - 70px);
+  }
+  .form-box {
+    margin-right: 0;
+    max-width: 90%;
+  }
+}

@@ -15,21 +15,23 @@ import BoardOfTrustees from "./pages/BoardOfTrustees";
 function App() {
   return (
     <Router>
-      <Navbar />
-      <main className="container my-4">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/darshan" element={<Darshan />} />
-          <Route path="/events" element={<Events />} />
-          <Route path="/events/:id" element={<EventDetail />} />
-          <Route path="/trustee" element={<BoardOfTrustees />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/donate" element={<Donate />} />
-          <Route path="/contact" element={<Contact />} />
-        </Routes>
-      </main>
-      <Footer />
+      <div className="d-flex flex-column min-vh-100">
+        <Navbar />
+        <main className="flex-grow-1 mt-5  pt-4 ">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/darshan" element={<Darshan />} />
+            <Route path="/events" element={<Events />} />
+            <Route path="/events/:id" element={<EventDetail />} />
+            <Route path="/trustee" element={<BoardOfTrustees />} />
+            <Route path="/gallery" element={<Gallery />} />
+            <Route path="/donate" element={<Donate />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
     </Router>
   );
 }
