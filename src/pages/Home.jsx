@@ -4,6 +4,7 @@ import { useTranslation } from "react-i18next";
 import { fetchHomeData } from "../api/homeApi";
 import { IMAGE_BASE_URL, ROUTES } from "../constants";
 import LoadingSpinner from "../components/LoadingSpinner";
+import "../style/Home.css";
 
 export default function Home() {
   const [homeData, setHomeData] = useState(null);
@@ -59,6 +60,12 @@ export default function Home() {
                 className={`carousel-item ${index === 0 ? "active" : ""}`}
                 key={index}
               >
+                {/* <img
+                  src={`${IMAGE_BASE_URL}${imgPath}`}
+                  className="d-block w-100"
+                  alt={`Slide ${index + 1}`}
+                  style={{ objectFit: "cover", height: "80vh" }}
+                /> */}
                 <img
                   src={`${IMAGE_BASE_URL}${imgPath}`}
                   className="d-block w-100 hero-image"
