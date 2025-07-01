@@ -2,15 +2,24 @@ import React, { useEffect, useState } from "react";
 import { fetchTrustees } from "../api/trusteeApi";
 import { IMAGE_BASE_URL } from "../constants";
 import { useTranslation } from "react-i18next";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 export default function BoardOfTrustees() {
   const [trustees, setTrustees] = useState([]);
+  const [loading, setLoading] = useState(true);
   const { t, i18n } = useTranslation();
   const lang = i18n.language || "en";
 
   useEffect(() => {
-    fetchTrustees().then(setTrustees);
+    fetchTrustees().then((data) => {
+      setTrustees(data);
+      setLoading(false);
+    });
   }, []);
+
+  if (loading) {
+    return <LoadingSpinner />;
+  }
 
   return (
     <div className="container py-5">
@@ -34,7 +43,7 @@ export default function BoardOfTrustees() {
                   style={{ height: "250px", objectFit: "cover" }}
                 />
                 <div className="card-body">
-                  <h5 className="card-title text-primary">{trustee.name}</h5>
+                  <h5 className="card-title text-danger">{trustee.name}</h5>
                   <p className="card-text mb-1">
                     <strong>{t("designation")}:</strong> {trustee.designation}
                   </p>

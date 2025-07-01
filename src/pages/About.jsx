@@ -38,12 +38,8 @@ export default function About() {
       .replace(/<img /g, '<img class="img-fluid rounded shadow" ');
   };
 
-  if (loading) {
+  if (loading || !aboutData) {
     return <LoadingSpinner />;
-  }
-
-  if (!aboutData) {
-    return <div className="text-center p-5">Loading...</div>;
   }
 
   const { title_en, title_hi, body_en, body_hi, images } = aboutData;

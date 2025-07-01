@@ -46,5 +46,18 @@ const en = {
   // donateNow: "Donate Now",
   // trustHistory: "Trust History",
   // trustActivities: "Trust Activities",
+
+  // Darshan
+  darshanVideos: "Darshan Videos",
+  darshanDescription: "A collection of live and recorded Darshan videos.",
+  noDarshanVideos: "No Darshan videos available at the moment.",
+  watchLiveDarshan: "Watch Live Darshan",
+  previous: "Previous",
+  next: "Next",
+  templeGallery: "Temple Gallery",
+  viewFullGallery: "📸 View Full Gallery",
+  visitAungariDham: "📍 Visit Aungari Dham",
+  aungariAddress: "Aungari Village, Nalanda District, Bihar",
+  templeOpenTime: "🕔 Open: 5 AM – 8 PM Daily",
 };
 export default en;
