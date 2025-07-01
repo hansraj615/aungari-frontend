@@ -61,9 +61,8 @@ export default function Home() {
               >
                 <img
                   src={`${IMAGE_BASE_URL}${imgPath}`}
-                  className="d-block w-100"
+                  className="d-block w-100 hero-image"
                   alt={`Slide ${index + 1}`}
-                  style={{ objectFit: "cover", height: "80vh" }}
                 />
                 <div className="carousel-caption d-flex flex-column justify-content-center align-items-center h-100">
                   <h1 className="display-3 fw-bold bg-dark bg-opacity-50 p-3 rounded">

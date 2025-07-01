@@ -21,7 +21,9 @@ export default function Footer() {
 
   return (
     <footer className="bg-dark text-light text-center py-3">
-      <p className="mb-0">© 2025 Aungari Dham | Developed with devotion 🕉️</p>
+      <p className="mb-0">
+        © 2025 Aungari Dham Trust | Developed with devotion 🕉️
+      </p>
       <div className="d-flex justify-content-center gap-3 mt-1">
         <p className="mb-0">
           <span role="img" aria-label="eye">
