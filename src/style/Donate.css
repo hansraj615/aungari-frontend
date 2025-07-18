@@ -1,0 +1,21 @@
+.donate-wrapper {
+  background: linear-gradient(to right, #fff5e6, #ffe4cc);
+  border-radius: 12px;
+  min-height: 100vh; /* Ensures it fills full screen height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.qr-section {
+  border: 2px dashed #ffc107;
+  padding: 1.5rem;
+  border-radius: 12px;
+}
+
+.bank-details {
+  margin-top: 2rem;
+  background-color: #f8f9fa;
+  border-left: 5px solid #28a745;
+  border-radius: 8px;
+}
